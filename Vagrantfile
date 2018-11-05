@@ -18,12 +18,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     # Install
-    yum -y install python-setuptools
-    easy_install pip
+    curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+    python /tmp/get-pip.py
     pip install ansible==#{$ansible_version}
 
     # Cleanup
     rm -f /etc/ssh/*key*
+    rm -f /tmp/get-pip.py
     yum clean all
     rm -rf /var/cache/yum
     dd if=/dev/zero of=/boot/ZERO bs=1M
