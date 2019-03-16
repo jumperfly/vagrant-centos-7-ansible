@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$centos_version = "1809.01.01"
-$ansible_version = "2.7.1"
+$centos_version = "1902.01.01"
+$ansible_version = "2.7.9"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "jumperfly/centos-7"
